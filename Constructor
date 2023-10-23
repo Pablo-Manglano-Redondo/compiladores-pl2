@@ -1,0 +1,25 @@
+from antlr4 import *
+from SQLMiniLexer import SQLMiniLexer
+from SQLMiniParser import SQLMiniParser
+
+def main():
+    input_str = "SELECT name, age FROM employees WHERE age > 30;"
+    input_stream = InputStream(input_str)
+    lexer = SQLMiniLexer(input_stream)
+    token_stream = CommonTokenStream(lexer)
+    parser = SQLMiniParser(token_stream)
+
+    # Manejar errores de sintaxis
+    parser._listeners = []
+    parser.addErrorListener(ErrorListener())
+
+    # Iniciar el análisis
+    tree = parser.query()
+
+    # Realizar acciones según la estructura de la consulta
+    # ...
+
+    print("Análisis completado.")
+
+if __name__ == '__main__':
+    main()
