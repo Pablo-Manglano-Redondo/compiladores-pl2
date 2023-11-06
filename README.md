@@ -1,5 +1,4 @@
-# compiladores-pl2
-Dumb, dum and dummy making the cumpilation pl2.
+# PL2 Compiladores | Gramáticas y Generadores Automáticos
 
 ## Recursos
 
