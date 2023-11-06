@@ -1,4 +1,4 @@
-// Generated from c:/Users/Pablo/Desktop/compiladores-pl2/Codigo/Linguine.g4 by ANTLR 4.13.1
+// Generated from /home/ssierra/uah/compiladores-pl2/src/Linguine.g4 by ANTLR 4.13.1
 import org.antlr.v4.runtime.Lexer;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.Token;

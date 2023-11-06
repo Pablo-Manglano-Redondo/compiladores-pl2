@@ -1,3 +1,5 @@
+// Linguine.g4
+
 grammar Linguine;
 
 // Reglas lexer
@@ -27,6 +29,7 @@ OR: 'OR';
 PIPE: '|';
 
 // Reglas parser
+
 program: statement+;
 
 statement: LET ID '=' (NUMBER | ID | expression) SEMICOLON

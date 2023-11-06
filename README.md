@@ -16,3 +16,17 @@ Dumb, dum and dummy making the cumpilation pl2.
 La memoria es un template de LaTeX, en el siguiente enlace se encuentra el acceso al OverLeaf (edición colaborativa).
 
 [Link OverLeaf](https://es.overleaf.com/2369829969xtbrwsgwswtp)
+
+## Instalación
+
+- Windows -> Seguir tutorial de los vídeos.
+- Linux -> '''pip install antlr4-tools'''
+
+### Extensión para VSCode Studio
+
+Name: ANTLR4 grammar syntax support
+Id: mike-lischke.vscode-antlr4
+Description: Language support for ANTLR4 grammar files
+Version: 2.4.2
+Publisher: Mike Lischke
+VS Marketplace Link: https://marketplace.visualstudio.com/items?itemName=mike-lischke.vscode-antlr4
