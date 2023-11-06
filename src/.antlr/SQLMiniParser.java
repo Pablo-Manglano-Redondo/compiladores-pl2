@@ -118,14 +118,6 @@ public class SQLMiniParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_query; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLMiniListener ) ((SQLMiniListener)listener).enterQuery(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLMiniListener ) ((SQLMiniListener)listener).exitQuery(this);
-		}
 	}
 
 	public final QueryContext query() throws RecognitionException {
@@ -230,14 +222,6 @@ public class SQLMiniParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_orderDirection; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLMiniListener ) ((SQLMiniListener)listener).enterOrderDirection(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLMiniListener ) ((SQLMiniListener)listener).exitOrderDirection(this);
-		}
 	}
 
 	public final OrderDirectionContext orderDirection() throws RecognitionException {
@@ -290,14 +274,6 @@ public class SQLMiniParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_condition; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLMiniListener ) ((SQLMiniListener)listener).enterCondition(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLMiniListener ) ((SQLMiniListener)listener).exitCondition(this);
-		}
 	}
 
 	public final ConditionContext condition() throws RecognitionException {
@@ -368,14 +344,6 @@ public class SQLMiniParser extends Parser {
 			super(parent, invokingState);
 		}
 		@Override public int getRuleIndex() { return RULE_expression; }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLMiniListener ) ((SQLMiniListener)listener).enterExpression(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof SQLMiniListener ) ((SQLMiniListener)listener).exitExpression(this);
-		}
 	}
 
 	public final ExpressionContext expression() throws RecognitionException {
