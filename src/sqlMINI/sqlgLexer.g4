@@ -3,7 +3,7 @@ lexer grammar sqlgLexer;
 AND:'AND';
 OR:('OR');                          //Comparadores logicos
 COMPARACION:('<'|'>'|'=='|'!='|'>='|'<='|'=');      //Simbolos de comparacion
-WS:[\b\t\n\r]+ ->skip;                              //Ignorar salto de linea, tabuladores
+WS:[\n\r]+ ->skip;                              //Ignorar salto de linea, tabuladores
 BL:' '+ ->skip;                                     //Ignorar espacios
 SELECT:'SELECT';                                    
 FROM:'FROM';
