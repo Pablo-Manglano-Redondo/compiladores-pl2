@@ -18,12 +18,18 @@ ID: [a-zA-Z_][a-zA-Z0-9_]*;
 NUMBER: [0-9]+;
 LPAREN: '(';
 RPAREN: ')';
-GT: '>';
-LT: '<';
-EEQ: '==';
-NEQ: '!=';
-GTE: '>=';
-LTE: '<=';
+
+// Boolean operators
+BOOLOP: ('==' | '!=' | '<' | '>' | '<=' | '>=' | '&&' | '||');
+// EEQ: '==';
+// NEQ: '!=';
+// LT: '<';
+// GT: '>';
+// LTE: '<=';
+// GTE: '>=';
+// AND: '&&';
+// OR: '||';
+
 PIPE: '|';
 ADD: '+';
 MUL: '*';
@@ -31,8 +37,6 @@ DIV: '/';
 MOD: '%';
 TRUE: 'true';
 FALSE: 'false';
-AND: '&&';
-OR: '||';
 NOT: '!';
 EQ: '=';
 SUB: '-';

@@ -25,7 +25,7 @@ assignment: LET? ID EQ expression
 
 // If statements
 ifStatement: IF LPAREN condition RPAREN THEN statement ELSE statement;
-condition: expression (GT | LT | GTE | LTE | QUESTION | EEQ | NEQ) expression;
+condition: expression BOOLOP expression;
 
 // Match statements
 matchStatement: MATCH ID WITH matchCases;
@@ -53,9 +53,4 @@ expression: NUMBER
         | SUB expression
         | ID QUESTION // For match statements to make sense.
         | QUESTION // Same as above
-        | expression GT expression
-        | expression LT expression
-        | expression GTE expression
-        | expression EEQ expression
-        | expression NEQ expression
-        | expression LTE expression;
+        | expression BOOLOP expression;
