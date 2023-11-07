@@ -5,9 +5,9 @@ options{
     language = Java;
 }
 
-fichero: consulta*;
+fichero: consulta (NEWLINE consulta)* ? EOF ;
 
-consulta: SELECT ((TEXTO(COMA TEXTO)*)|ALL) FROM TEXTO (WHERE expr*)? (ORDER TEXTO DIRECCION)?;
+consulta: (SELECT ((TEXTO(COMA TEXTO)*)|ALL) FROM TEXTO (WHERE expr*)? (ORDER TEXTO DIRECCION)?)*;
 
 expr:   expr COMPARACION expr
     |   expr AND expr

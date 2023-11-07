@@ -3,7 +3,10 @@ import org.antlr.v4.runtime.tree.*;
 
 import java.io.FileInputStream;
 import java.io.InputStream;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 
+@SuppressWarnings("deprecation")
 public class AnalizadorSQL {
 
     public static void main(String[] args) throws Exception{
@@ -14,19 +17,26 @@ public class AnalizadorSQL {
         InputStream is = System.in;
         if(inputFile!=null) is = new FileInputStream(inputFile);
 
-        ANTLRInputStream input = new ANTLRInputStream(is);
+        BufferedReader reader = new BufferedReader(new InputStreamReader(is));
+        String line;
+        while ((line = reader.readLine()) != null) {
+            ANTLRInputStream input = new ANTLRInputStream(line);
 
-        sqlgLexer lexer = new sqlgLexer(input);
-        CommonTokenStream tokens = new CommonTokenStream(lexer);
+            sqlgLexer lexer = new sqlgLexer(input);
+            CommonTokenStream tokens = new CommonTokenStream(lexer);
 
-        sqlgParser parser = new sqlgParser(tokens);
+            sqlgParser parser = new sqlgParser(tokens);
 
-        ParseTree tree = parser.consulta();
+            ParseTree tree = parser.consulta();
 
-        ParseTreeWalker walker = new ParseTreeWalker();
-        AnalizadorsqlListener escuchador = new AnalizadorsqlListener();
-        walker.walk(escuchador,tree);
+            ParseTreeWalker walker = new ParseTreeWalker();
+            AnalizadorsqlListener escuchador = new AnalizadorsqlListener();
+            walker.walk(escuchador,tree);
 
-        //System.out.println(tree.toStringTree(parser));
+            //escuchador.printConsultas();
+            //escuchador.printExpresiones();
+
+            System.out.println(tree.toStringTree(parser));
+        }
     }
 }

@@ -1,0 +1,3 @@
+SELECT name, age, stock FROM employees WHERE ((price >= 100) AND (stock > 0 OR stock = 5) AND ( age == 37 OR age==3))
+
+SELECT name, age FROM employees WHERE (age > 30 OR salary > 50000) AND  (salary != 50001 OR age <= 3)  ORDER BY salary ASC
