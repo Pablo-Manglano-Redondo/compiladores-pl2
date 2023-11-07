@@ -1,14 +1,12 @@
 import org.antlr.v4.runtime.*;
 import org.antlr.v4.runtime.tree.*;
 
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-/**
- * Hello world!
- *
- */
+@SuppressWarnings("deprecation")
 public class Analyser 
 {
     public static void main( String[] args ) throws IOException
@@ -39,8 +37,37 @@ public class Analyser
 
         ParseTree tree = parser.program(); // Parse the input
 
-        System.out.println(tree.toStringTree(parser)); // Print LISP-style tree
+
+
+
+        if (args.length > 1 && (args[1].equals("-t") || args[1].equals("--tree"))) {
+
+            System.out.println(tree.toStringTree(parser)); // Print LISP-style tree
+        } else {
+
+
+            
+            // Traverse the tree
+            // 1. Initialise the walker
+            
+        ParseTreeWalker walker = new ParseTreeWalker();
+
+        // 2. Initialise listener
         
+        AnalyserListener listener = new AnalyserListener();
+
+        // 3. Walk the tree and fetch needed data.
+        
+        System.out.println("@: ID --> VAL");
+        System.out.println("----------------");
+
+        walker.walk(listener, tree);
+
+        // 4. Print symbol table
+
+        listener.printSymbolTable();
+        
+        }
     }
 }
 

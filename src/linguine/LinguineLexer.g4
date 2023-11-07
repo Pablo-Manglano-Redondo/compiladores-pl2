@@ -44,9 +44,11 @@ NOT: '!';
 EQ: '=';
 SUB: '-';
 
-// NL: [\r\n]+; // Windows or Unix line endings
+NL: [\r\n]+; // Windows or Unix line endings
 // Ignore spaces, tabs, carriage returns and newlines...
-WS: [ \t\r\n]+ -> skip;
+WS: ' '+ -> skip;
+
+
 
 mode COMMENT;
 COMMENT_END: '--' -> popMode;

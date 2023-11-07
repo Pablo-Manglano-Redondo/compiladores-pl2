@@ -1,12 +1,12 @@
 parser grammar LinguineParser;
 
 options {
-    tokenVocab=LinguineLexer;
-    language=Java;}
+        tokenVocab=LinguineLexer;
+        language=Java;}
 
 // Reglas parser
 
-program: (statement|comment)+;
+program: (statement|comment|NL)+;
 
 comment: COMMENT_OPEN COMMENT_TEXT* COMMENT_END;
 
@@ -21,17 +21,18 @@ statement: statement SEMICOLON // Wrapping with semicolon for outer statements.
         | showStatement;
 
 // Assignments
-assignment: LET? ID EQ expression
-        | LET? ID EQ function
-        | LET? ID EQ ifStatement;
+assignment: LET assignment
+        | ID EQ expression
+        | ID EQ function
+        | ID EQ ifStatement;
 
 // If statements
 ifStatement: IF LPAREN condition RPAREN THEN statement ELSE statement;
 condition: expression BOOLOP expression;
 
 // Match statements
-matchStatement: MATCH ID WITH matchCases;
-matchCases: (PIPE matchCase)*;
+matchStatement: MATCH ID WITH (NL)? matchCases;
+matchCases: (PIPE matchCase| PIPE matchCase NL)*;
 matchCase: expression ARROW expression;
 
 // Function definitions
@@ -41,10 +42,9 @@ function: FUN ID LPAREN (ID (COMMA ID)*)? RPAREN ARROW statement;
 showStatement: SHOW expression;
 
 // Expressions
-expression: NUMBER
-        | ID
+expression: expression WS
+        | WS expression
         | ID LPAREN (expression (COMMA expression)*)? RPAREN
-        | STRING // String
         | expression ADD expression
         | expression SUB expression
         | expression MUL expression
@@ -55,4 +55,7 @@ expression: NUMBER
         | SUB expression
         | ID QUESTION // For match statements to make sense.
         | QUESTION // Same as above
-        | expression BOOLOP expression;
+        | expression BOOLOP expression
+        | NUMBER
+        | ID
+        | STRING; // String
