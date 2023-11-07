@@ -1,6 +1,0 @@
-{
-    "java.project.referencedLibraries": [
-        "org.antlr.v4.*",
-        "antlr-4.13.1-complete.jar"
-    ]
-}
