@@ -43,3 +43,48 @@ Nos encontramos frente a un lenguaje de programación aparentemente **imperativo
 Aunque la sentencia **"match"** es especial, ya que se escribe en varias líneas, termina en **;**, lo que hace que esto sea meramente visual y pueda, de igual modo, ser considerada una sentencia unilínea.
 
 - **No hay bloques de código**: Al tener las sentencias una estructura unilínea, no hay bloques de código, por lo que no hay necesidad de usar llaves **{}** o algún otro tipo de estrategia para delimitarlos.
+
+### Uso potencial del lenguaje
+
+Este lenguaje de programación podría ser usado para la creación de programas que requieran de un alto rendimiento al ser compilado. Además, el lenguaje es de tipado dinámico, lo que hace que sea más fácil de usar y más rápido de programar.
+
+Resultaría bastante intuitivo para programadores que ya hayan usado lenguajes como **Python**, ya que la sintaxis es ciertamente similar.
+
+También podría utilizarse en el ámbito del desarrollo web, ya que el código al tener una estructura tan simple, podría ser fácilmente comprimido como hacen algunos otros lenguajes (webpacks) de **JavaScript**.
+
+### Modo de empleo
+
+Para ejecutar el analizador de este lenguaje, se debe ejecutar el siguiente comando:
+
+(**¡En Linux!**)
+
+1. Compilación del Proyecto
+
+```bash
+
+cd path_to_linguine
+make
+
+```
+
+Es MUY importante verificar que las librerías se encuentren según se especifica en el Makefile.
+
+2. Ejecución del Analizador
+
+```bash
+
+cd path_to_linguine
+./run.sh path_to_code_file 
+
+```
+
+Este comando devolverá la tabla de símbolos. Si lo que se quiere obtener es el árbol sintáctico (AST) (Formato LISP), se debe añadir el flag **-t** o **--tree** al final del comando.
+
+```bash
+
+./run.sh path_to_code_file -t || ./run.sh path_to_code_file --tree
+
+```
+
+```
+
