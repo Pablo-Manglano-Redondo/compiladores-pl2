@@ -4,3 +4,9 @@
 *Lexer.java
 *Parser.java
 **/.antlr/
+
+# Ignore build dirs
+
+target/
+out/
+build/
