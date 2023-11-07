@@ -86,5 +86,3 @@ Este comando devolverá la tabla de símbolos. Si lo que se quiere obtener es el
 
 ```
 
-```
-
