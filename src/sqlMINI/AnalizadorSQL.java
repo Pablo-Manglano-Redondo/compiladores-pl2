@@ -33,9 +33,6 @@ public class AnalizadorSQL {
             AnalizadorsqlListener escuchador = new AnalizadorsqlListener();
             walker.walk(escuchador,tree);
 
-            //escuchador.printConsultas();
-            //escuchador.printExpresiones();
-
             System.out.println(tree.toStringTree(parser));
         }
     }

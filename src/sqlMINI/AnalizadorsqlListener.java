@@ -1,5 +1,4 @@
 import org.antlr.v4.runtime.tree.TerminalNode;
-import org.antlr.v4.runtime.tree.ParseTree;
 
 public class AnalizadorsqlListener extends sqlgParserBaseListener {
 
