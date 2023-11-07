@@ -1,0 +1,46 @@
+-- Asignación sencilla --
+let x = 5;
+
+-- Asignación con operación --
+let y = 2 + 3;
+
+-- Condicional --
+if (x > 2) then let y = 1 else let y = 0;
+
+-- Función simple --
+fun add(a, b) -> a + b;
+let result = add(3, 4);
+show(result);
+
+-- Función recursiva --
+fun factorial(n) -> if (n <= 1) then 1 else n * factorial(n - 1);
+let result = factorial(5);
+show(result+2);
+
+-- Estructura match --
+match x with
+| 1 -> "One"
+| 2 -> "Two"
+| ? -> "Other";
+
+-- Funciones anidadas --
+fun add(a, b) -> a + b;
+fun square(x) -> x * x;
+let result = square(add(2, 3));
+
+-- Asignación con condicional --
+let a = 5;
+let b = 3;
+let result = if (a > b) then (a + b) * (a - b) else a / b;
+
+-- Función recursiva dentro de un match --
+fun fib(n) -> match n with
+| 0 -> 0
+| 1 -> 1
+| ? -> fib(n - 1) + fib(n - 2);
+let result = fib(6);
+
+-- Función pasada como parámetro --
+fun apply(func, x) -> func(x);
+fun square(x) -> x * x;
+let result = apply(square, 5);
