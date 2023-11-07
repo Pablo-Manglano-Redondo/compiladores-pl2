@@ -6,7 +6,9 @@ options {
 
 // Reglas parser
 
-program: statement+;
+program: (statement|comment)+;
+
+comment: COMMENT_OPEN COMMENT_TEXT* COMMENT_END;
 
 
 // Statements (including both inner and outer statements).

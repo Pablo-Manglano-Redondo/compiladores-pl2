@@ -1,6 +1,9 @@
 lexer grammar LinguineLexer;
 
+
+
 // Lexer rules
+COMMENT_OPEN: '--' -> pushMode(COMMENT);
 STRING: '"' (~["\r\n])* '"';
 LET: 'let';
 IF: 'if';
@@ -41,5 +44,14 @@ NOT: '!';
 EQ: '=';
 SUB: '-';
 
+// NL: [\r\n]+; // Windows or Unix line endings
 // Ignore spaces, tabs, carriage returns and newlines...
 WS: [ \t\r\n]+ -> skip;
+
+mode COMMENT;
+COMMENT_END: '--' -> popMode;
+COMMENT_TEXT: .+?; // Non-greedy match of any character
+// Because of this we will have to add it to the comment text
+// when defining the comment rule
+
+
