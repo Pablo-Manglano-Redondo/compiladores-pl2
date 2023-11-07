@@ -2,6 +2,7 @@ import org.antlr.v4.runtime.*;
 import org.antlr.v4.runtime.tree.*;
 
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.io.InputStream;
 
 /**
@@ -10,7 +11,7 @@ import java.io.InputStream;
  */
 public class Analyser 
 {
-    public static void main( String[] args )
+    public static void main( String[] args ) throws IOException
     {
         // Initialise data input stream
 
@@ -30,16 +31,16 @@ public class Analyser
         // Initialise ANTLR from file
 
         ANTLRInputStream input = new ANTLRInputStream(is);
+
         LinguineLexer lexer = new LinguineLexer(input);
         
         CommonTokenStream tokens = new CommonTokenStream(lexer);
-        LinguineParser parser = LinguineParser(tokens);
+        LinguineParser parser = new LinguineParser(tokens);
 
         ParseTree tree = parser.program(); // Parse the input
 
         System.out.println(tree.toStringTree(parser)); // Print LISP-style tree
         
-
     }
 }
 
