@@ -1,6 +1,5 @@
 *.interp
 *.tokens
-*Listener.java
 *Lexer.java
 *Parser.java
 **/.antlr/
