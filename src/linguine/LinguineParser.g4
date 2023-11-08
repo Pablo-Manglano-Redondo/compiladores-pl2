@@ -55,6 +55,7 @@ expression: expression WS
         | SUB expression
         | ID QUESTION // For match statements to make sense.
         | QUESTION // Same as above
+        | expression AND expression
         | expression BOOLOP expression
         | NUMBER
         | ID
