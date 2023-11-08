@@ -4,6 +4,6 @@ public class AnalizadorsqlListener extends sqlgParserBaseListener {
 
     @Override
     public void visitTerminal(TerminalNode node) {
-        System.out.print(node);
+        //System.out.print(node);
     }
 }
