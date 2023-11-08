@@ -1,5 +1,4 @@
 -- Asignación sencilla --
-let variable = ? -- uninitialised var --
 let x = 5;
 
 -- Asignación con operación --
@@ -17,8 +16,6 @@ show(result);
 fun factorial(n) -> if (n <= 1) then 1 else n * factorial(n - 1);
 let result = factorial(5);
 show(result+2);
-
-variable = 5 -- modify var --
 
 -- Estructura match --
 match x with
