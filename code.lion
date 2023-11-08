@@ -1,4 +1,5 @@
 -- Asignación sencilla --
+let y = ?; -- uninitialised variable --
 let x = 5;
 
 -- Asignación con operación --
