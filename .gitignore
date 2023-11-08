@@ -9,3 +9,4 @@
 target/
 out/
 build/
+**/run.sh
