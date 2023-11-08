@@ -17,6 +17,6 @@ INT:[0-9]+;                                         //Numeros
 FLOTANTES: INT+ '.' INT+;                           //Numeros flotantes
 APAR:'(';
 CPAR:')';
-COMILLA:'’';
+COMILLA:'"';
 NEWLINE : ('\r'? '\n')+ -> skip;
 SEMICOLON: ';';
