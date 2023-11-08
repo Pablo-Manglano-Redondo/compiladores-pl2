@@ -3,8 +3,8 @@ lexer grammar sqlgLexer;
 AND:'AND';
 OR:('OR');                          //Comparadores logicos
 COMPARACION:('<'|'>'|'=='|'!='|'>='|'<='|'=');      //Simbolos de comparacion
-WS : [ \t]+ -> skip ;
-BL:' '+ ->skip;                                     //Ignorar espacios
+TAB : [ \t]+ -> skip ;
+WS:' '+ ->skip;                                     //Ignorar espacios
 SELECT:'SELECT';                                    
 FROM:'FROM';
 COMA:',';
@@ -17,5 +17,6 @@ INT:[0-9]+;                                         //Numeros
 FLOTANTES: INT+ '.' INT+;                           //Numeros flotantes
 APAR:'(';
 CPAR:')';
-COMILLA:'’';
-NEWLINE : ('\r'? '\n')+ ;
+COMILLA:'"';
+NEWLINE : ('\r'? '\n')+ -> skip;
+SEMICOLON: ';';

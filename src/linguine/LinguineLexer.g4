@@ -1,7 +1,5 @@
 lexer grammar LinguineLexer;
 
-
-
 // Lexer rules
 COMMENT_OPEN: '--' -> pushMode(COMMENT);
 STRING: '"' (~["\r\n])* '"';
@@ -23,15 +21,8 @@ LPAREN: '(';
 RPAREN: ')';
 
 // Boolean operators
-BOOLOP: ('==' | '!=' | '<' | '>' | '<=' | '>=' | '&&' | '||');
-// EEQ: '==';
-// NEQ: '!=';
-// LT: '<';
-// GT: '>';
-// LTE: '<=';
-// GTE: '>=';
-// AND: '&&';
-// OR: '||';
+AND: '&&'; // Keep correct order of operations AND goes first
+BOOLOP: ('==' | '!=' | '<' | '>' | '<=' | '>=' | '||');
 
 PIPE: '|';
 ADD: '+';

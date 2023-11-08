@@ -5,9 +5,13 @@ options{
     language = Java;
 }
 
-fichero: consulta (NEWLINE consulta)* ? EOF ;
+fichero: (consulta|NEWLINE)+;
 
-consulta: (SELECT ((TEXTO(COMA TEXTO)*)|ALL) FROM TEXTO (WHERE expr*)? (ORDER TEXTO DIRECCION)?)*;
+consulta: consulta SEMICOLON
+        | APAR select CPAR  // Permitimos consultas anidadas.
+        | select;
+
+select: (SELECT ((TEXTO (COMA TEXTO)*)|ALL) FROM TEXTO (WHERE expr*)? (ORDER TEXTO DIRECCION)?);
 
 expr:   expr COMPARACION expr
     |   expr AND expr

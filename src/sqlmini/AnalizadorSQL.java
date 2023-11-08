@@ -17,23 +17,20 @@ public class AnalizadorSQL {
         InputStream is = System.in;
         if(inputFile!=null) is = new FileInputStream(inputFile);
 
-        BufferedReader reader = new BufferedReader(new InputStreamReader(is));
-        String line;
-        while ((line = reader.readLine()) != null) {
-            ANTLRInputStream input = new ANTLRInputStream(line);
+        
+        ANTLRInputStream input = new ANTLRInputStream(is);
 
-            sqlgLexer lexer = new sqlgLexer(input);
-            CommonTokenStream tokens = new CommonTokenStream(lexer);
+        sqlgLexer lexer = new sqlgLexer(input);
+        CommonTokenStream tokens = new CommonTokenStream(lexer);
 
-            sqlgParser parser = new sqlgParser(tokens);
+        sqlgParser parser = new sqlgParser(tokens);
 
-            ParseTree tree = parser.consulta();
+        ParseTree tree = parser.fichero();
 
-            ParseTreeWalker walker = new ParseTreeWalker();
-            AnalizadorsqlListener escuchador = new AnalizadorsqlListener();
-            walker.walk(escuchador,tree);
+        ParseTreeWalker walker = new ParseTreeWalker();
+        AnalizadorsqlListener escuchador = new AnalizadorsqlListener();
+        walker.walk(escuchador,tree);
 
-            System.out.println(tree.toStringTree(parser));
-        }
+        System.out.println(tree.toStringTree(parser));
     }
 }

@@ -9,3 +9,7 @@
 target/
 out/
 build/
+release/
+**/run.sh
+
+# Ignore all files called "run.sh" anywhere in the tree

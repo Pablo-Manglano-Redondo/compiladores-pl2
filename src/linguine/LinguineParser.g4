@@ -45,16 +45,17 @@ showStatement: SHOW expression;
 expression: expression WS
         | WS expression
         | ID LPAREN (expression (COMMA expression)*)? RPAREN
+        | expression DIV expression
+        | expression MUL expression
+        | expression MOD expression
         | expression ADD expression
         | expression SUB expression
-        | expression MUL expression
-        | expression DIV expression
-        | expression MOD expression
         | ID ARROW expression // REV
         | LPAREN expression RPAREN
         | SUB expression
         | ID QUESTION // For match statements to make sense.
         | QUESTION // Same as above
+        | expression AND expression
         | expression BOOLOP expression
         | NUMBER
         | ID
