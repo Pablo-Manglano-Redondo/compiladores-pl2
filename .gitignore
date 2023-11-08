@@ -10,3 +10,5 @@ target/
 out/
 build/
 **/run.sh
+
+# Ignore all files called "run.sh" anywhere in the tree
